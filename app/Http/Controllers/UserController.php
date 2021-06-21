@@ -55,7 +55,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        // return $user;
+        // return $user->load('posts');
         return new UserResource($user);
     }
 
@@ -95,5 +95,10 @@ class UserController extends Controller
         $user->delete();
 
         return response(['message' => 'User deleted successfull'], 200);
+    }
+
+    public function showPost(User $user)
+    {
+        return $user->load('posts');
     }
 }
