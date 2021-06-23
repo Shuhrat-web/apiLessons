@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class CommentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +25,8 @@ class PostRequest extends FormRequest
     {
         return [
             'user_id' => 'required|numeric|digits_between:1,20',
-            'title' => 'required|string|min:1|max:50',
-            'exerpt' => 'required|string|min:1|max:255',
-            'description' => 'required|string|min:1|max:255',
-            'published_at' => 'required|date',
-            'is_published' => 'required|min:1|max:1'
+            'post_id' => 'required|numeric|digits_between:1,20',
+            'body' => 'required|string|min:5|max:255'
         ];
     }
 }
